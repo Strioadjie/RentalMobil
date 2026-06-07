@@ -15,23 +15,26 @@ Aplikasi ini mendukung operasi dasar CRUD (Create, Read, Update, Delete) untuk m
 - **GUI Framework:** Java Swing
 - **Arsitektur:** MVC (Model, View, Controller)
 - **Database:** MySQL
-- **IDE:** NetBeans IDE
+- **Build Tool:** Maven (mempermudah manajemen dependensi seperti MySQL JDBC)
+- **IDE:** NetBeans IDE (direkomendasikan) atau IDE Java lainnya
 
 ## Struktur Proyek
-- `src/com/controller`: Interface controller untuk mengatur alur logika CRUD (`controller_mobil.java`).
-- `src/com/model`: Implementasi logika bisnis dan koneksi query database (`model_mobil.java`).
-- `src/com/view`: Antarmuka grafis pengguna atau GUI (`form_mobil.java` & `.form`).
-- `src/com/koneksi`: Kelas untuk menangani konfigurasi driver dan koneksi ke database MySQL (`koneksi.java`).
+- `src/main/java/com/controller`: Interface controller untuk mengatur alur logika CRUD (`controller_mobil.java`).
+- `src/main/java/com/model`: Implementasi logika bisnis dan koneksi query database (`model_mobil.java`).
+- `src/main/java/com/view`: Antarmuka grafis pengguna atau GUI (`form_mobil.java` & `.form`).
+- `src/main/java/com/koneksi`: Kelas untuk menangani konfigurasi driver dan koneksi ke database MySQL (`koneksi.java`).
 
 ## Persyaratan Sistem & Instalasi
-1. Pastikan **Java Development Kit (JDK)** telah terinstal di komputer.
+1. Pastikan **Java Development Kit (JDK)** dan **Maven** telah terinstal di komputer.
 2. Pastikan server lokal seperti **XAMPP / WAMP** berjalan (khususnya module MySQL).
 3. Buat database baru di MySQL dengan nama `rentalmobil`.
 4. Import atau buat tabel bernama `rental` di database tersebut. *(Terdapat file sql pendukung di folder `Data Basenya/` jika tersedia).*
     - Kolom yang dibutuhkan: `nama_peminjam` (VARCHAR/PK), `lama_sewa` (VARCHAR/INT), `kelamin_peminjam` (VARCHAR), `jenis_mobil` (VARCHAR).
-5. Buka proyek ini menggunakan **NetBeans IDE**.
-6. Pastikan library **MySQL JDBC Driver** sudah ditambahkan ke *Libraries* proyek atau akan diload otomatis lewat `Class.forName()`.
-7. Jalankan proyek (Run Project / `Shift+F6` di `form_mobil.java`).
+5. Buka proyek ini menggunakan **NetBeans IDE**. IDE akan otomatis mengenali proyek sebagai *Maven Project* dan mendownload library *MySQL JDBC Driver* yang dibutuhkan.
+6. Jalankan proyek melalui IDE (Run Project) atau jalankan perintah maven:
+   ```bash
+   mvn clean compile exec:java
+   ```
 
 ## Cara Penggunaan
 1. Buka aplikasi.
