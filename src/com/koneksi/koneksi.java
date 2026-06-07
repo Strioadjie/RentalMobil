@@ -16,9 +16,9 @@ public class koneksi {
                 String url = "jdbc:mysql://localhost/rentalmobil"; 
                 String username = "root";
                 String password = "";
-                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e){
+        } catch (Exception e){
             System.out.println(e);
         }
     }
